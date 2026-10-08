@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مودیان‌یار — ارسال خودکار صورتحساب الکترونیکی ووکامرس به سامانه مودیان</title>
+<meta name="description" content="دموی افزونهٔ مودیان‌یار: اتصال مستقیم ووکامرس به سامانه مودیان سازمان امور مالیاتی — صدور خودکار صورتحساب نوع اول، دوم و ابطالی، امضای دیجیتال، صف ارسال هوشمند، گزارش ماهانهٔ شمسی و پشتیبانی دکان.">
+<style>
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Regular.woff2') format('woff2'); font-weight:400; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Medium.woff2') format('woff2'); font-weight:500; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-SemiBold.woff2') format('woff2'); font-weight:600; }
+@font-face { font-family:'Vazirmatn'; src:url('fonts/Vazirmatn-Bold.woff2') format('woff2'); font-weight:700; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Vazirmatn', Tahoma, sans-serif; background:#06211b; color:#fff; overflow-x:hidden; }
+.topbar { height:6px; background:linear-gradient(90deg,#6fd6b8,#2e9b7d 34%,#1f7a63 58%,#ffd08a); }
+.wrap { max-width:1100px; margin:0 auto; padding:0 24px; }
+
+/* HERO */
+.hero { position:relative; padding:72px 0 60px;
+  background:
+    radial-gradient(ellipse 900px 620px at 85% 110%, rgba(63,191,152,.22), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 8% -10%, rgba(126,242,182,.12), transparent 55%),
+    linear-gradient(122deg,#06211b 0%,#0c3428 40%,#14503f 75%,#1f7a63 100%); }
+.hero-inner { display:flex; align-items:center; gap:26px; flex-wrap:wrap; }
+.logo { width:88px; height:88px; border-radius:24px; flex-shrink:0;
+  background:linear-gradient(135deg,#3fbf98,#17604e);
+  box-shadow:0 14px 44px rgba(31,122,99,.55), inset 0 2px 0 rgba(255,255,255,.28);
+  display:flex; align-items:center; justify-content:center; font-size:48px; font-weight:700; }
+.hero h1 { font-size:44px; font-weight:700; letter-spacing:-.5px; }
+.hero h1 span { background:linear-gradient(90deg,#7ef2b6,#6fd6b8); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.vchip { display:inline-block; background:rgba(126,242,182,.14); color:#7ef2b6; border:1.5px solid rgba(126,242,182,.45);
+  border-radius:999px; padding:5px 16px; font-size:15px; font-weight:600; margin-inline-start:14px; vertical-align:middle; }
+.hero p { margin-top:14px; font-size:19px; line-height:1.9; color:rgba(255,255,255,.92); max-width:680px; }
+.hero p b { color:#ffe7bd; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:34px; }
+.stat { background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.18); border-radius:16px; padding:16px 18px; }
+.stat .n { font-size:26px; font-weight:700; color:#6fd6b8; }
+.stat .t { font-size:14px; color:rgba(255,255,255,.75); margin-top:4px; font-weight:500; }
+
+/* CTA */
+.cta { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+.btn { display:inline-flex; align-items:center; gap:8px; border-radius:14px; padding:14px 30px;
+  font-size:17px; font-weight:700; text-decoration:none; cursor:pointer; border:none; font-family:inherit; }
+.btn-buy { background:linear-gradient(135deg,#3fbf98,#1f7a63); color:#fff; box-shadow:0 12px 34px rgba(31,122,99,.5); }
+.btn-buy:hover { filter:brightness(1.1); }
+.btn-ghost { background:rgba(255,255,255,.08); color:#dff5ec; border:1.5px solid rgba(255,255,255,.25); }
+.btn-ghost:hover { background:rgba(255,255,255,.14); }
+
+/* SECTIONS */
+section { padding:64px 0; }
+.sec-title { font-size:30px; font-weight:700; margin-bottom:8px; }
+.sec-title b { color:#3fbf98; }
+.sec-sub { color:rgba(255,255,255,.7); font-size:16.5px; font-weight:500; margin-bottom:36px; line-height:1.9; }
+
+/* SHOTS */
+.shot-hero { border-radius:18px; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,.5), 0 0 0 1.5px rgba(255,255,255,.16); margin-bottom:22px; }
+.shot-hero img { width:100%; display:block; }
+.shot-cap { background:rgba(10,31,25,.94); border:1.5px solid rgba(255,255,255,.16); border-top:none;
+  border-radius:0 0 18px 18px; padding:14px 20px; font-size:15.5px; font-weight:600; color:#dff5ec; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+.shot { background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.16); border-radius:16px; overflow:hidden; }
+.shot img { width:100%; height:210px; object-fit:cover; object-position:top center; display:block; }
+.shot .cap { padding:13px 16px; font-size:14.5px; font-weight:600; color:rgba(255,255,255,.9); }
+
+/* WORKFLOW */
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; counter-reset:step; }
+.step { background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.16); border-radius:18px; padding:22px; }
+.step .num { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+  font-size:21px; font-weight:700; background:linear-gradient(135deg,#6fd6b8,#1f7a63); margin-bottom:14px; }
+.step h3 { font-size:17.5px; font-weight:700; margin-bottom:8px; }
+.step p { font-size:14.5px; line-height:1.9; color:rgba(255,255,255,.75); }
+
+/* CREDENTIALS */
+.creds { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; }
+.cred { background:rgba(10,31,25,.65); border:1.5px solid rgba(63,191,152,.35); border-radius:18px; padding:24px; }
+.cred .ico { width:48px; height:48px; border-radius:14px; background:linear-gradient(135deg,#3fbf98,#17604e);
+  display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:14px; }
+.cred h3 { font-size:17px; font-weight:700; margin-bottom:8px; color:#7ef2b6; }
+.cred p { font-size:14px; line-height:1.95; color:rgba(255,255,255,.78); }
+.cred .from { display:block; margin-top:10px; font-size:12.5px; color:#ffd08a; font-weight:600; }
+.notebox { margin-top:22px; background:rgba(255,208,138,.09); border:1.5px solid rgba(255,208,138,.4);
+  border-radius:16px; padding:18px 22px; font-size:15px; line-height:2; color:#ffe7bd; }
+.notebox b { color:#ffd08a; }
+
+/* FEATURES */
+.feats { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+.feat { background:rgba(255,255,255,.07); border:1.5px solid rgba(255,255,255,.16); border-radius:16px; padding:20px 22px; }
+.feat .fi { width:40px; height:40px; border-radius:11px; background:rgba(63,191,152,.18); border:1.5px solid rgba(63,191,152,.45);
+  display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:12px; }
+.feat h3 { font-size:16px; font-weight:700; margin-bottom:6px; }
+.feat p { font-size:13.8px; line-height:1.85; color:rgba(255,255,255,.72); }
+
+/* HIGHLIGHT BAND */
+.band { background:linear-gradient(122deg,#0c3428,#14503f); border-top:1.5px solid rgba(63,191,152,.25);
+  border-bottom:1.5px solid rgba(63,191,152,.25); }
+.band-inner { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; align-items:center; }
+.band-txt h2 { font-size:27px; font-weight:700; margin-bottom:12px; }
+.band-txt h2 b { color:#7ef2b6; }
+.band-txt p { font-size:15.5px; line-height:2; color:rgba(255,255,255,.82); }
+.band-shot { border-radius:16px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.45), 0 0 0 1.5px rgba(255,255,255,.14); }
+.band-shot img { width:100%; display:block; }
+.pillrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.pill { background:rgba(126,242,182,.12); border:1.5px solid rgba(126,242,182,.4); color:#7ef2b6;
+  border-radius:999px; padding:7px 16px; font-size:13.5px; font-weight:600; }
+
+/* FAQ */
+details { background:rgba(255,255,255,.06); border:1.5px solid rgba(255,255,255,.16); border-radius:14px;
+  padding:18px 22px; margin-bottom:12px; }
+summary { font-size:16.5px; font-weight:700; cursor:pointer; list-style:none; }
+summary::before { content:'؟ '; color:#3fbf98; }
+details[open] summary { color:#7ef2b6; }
+details p { margin-top:12px; font-size:15px; line-height:2.1; color:rgba(255,255,255,.8); }
+
+/* FOOTER */
+footer { padding:64px 0 44px; background:linear-gradient(122deg,#06211b,#0c3428); border-top:1.5px solid rgba(63,191,152,.25); text-align:center; }
+.price { font-size:17px; font-weight:600; color:rgba(255,255,255,.75); }
+.price b { font-size:30px; color:#ffd08a; }
+.featline { margin-top:10px; font-size:14.5px; color:rgba(255,255,255,.6); }
+footer .cta { justify-content:center; }
+.copy { margin-top:30px; font-size:13px; color:rgba(255,255,255,.45); }
+@media (max-width:640px) {
+  .hero h1 { font-size:32px; } .sec-title { font-size:24px; }
+  .hero p { font-size:16px; } section { padding:48px 0; }
+}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="logo">م</div>
+      <div>
+        <h1>مودیان<span>‌یار</span><span class="vchip">قانون پایانه‌های فروشگاهی</span></h1>
+        <p>افزونهٔ اتصال مستقیم <b>ووکامرس</b> به <b>سامانهٔ مودیان</b> سازمان امور مالیاتی — هر سفارش، خودکار به صورتحساب الکترونیکی تبدیل می‌شود، با کلید خصوصی شما امضا می‌شود و تا تأیید نهایی پیگیری می‌گردد. بدون کپی دستی، بدون نرم‌افزار جانبی، بدون واسطه.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">۲</div><div class="t">پروتکل رسمی (TSP و v2)</div></div>
+      <div class="stat"><div class="n">۵ دقیقه</div><div class="t">استعلام خودکار وضعیت</div></div>
+      <div class="stat"><div class="n">۲۱</div><div class="t">آزمون خودآزمون الگوریتم‌ها</div></div>
+      <div class="stat"><div class="n">۱۰۰٪</div><div class="t">رابط RTL فارسی + ترجمهٔ انگلیسی</div></div>
+    </div>
+    <div class="cta">
+      <a class="btn btn-buy" href="#gallery">مشاهدهٔ تصاویر محیط افزونه</a>
+      <a class="btn btn-ghost" href="#creds">چه چیزی را کجا وارد کنم؟</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="shot-hero"><img src="shots/dashboard.png" alt="پیشخوان مودیان‌یار — نمای کلی وضعیت صورتحساب‌ها"></div>
+    <div class="shot-cap">پیشخوان مودیان‌یار — وضعیت لحظه‌ای صورتحساب‌ها، آمار ارسال موفق/ناموفق و آخرین فعالیت‌ها</div>
+
+    <section id="flow" style="padding-top:56px">
+      <h2 class="sec-title">چرخهٔ کامل صورتحساب، <b>خودکار از سفارش تا تأیید</b></h2>
+      <p class="sec-sub">مودیان‌یار فقط «ارسال‌کننده» نیست؛ کل چرخه — صدور، امضا، ارسال، استعلام، ابطال و گزارش — را مدیریت می‌کند.</p>
+      <div class="steps">
+        <div class="step"><div class="num">۱</div><h3>سفارش ووکامرس</h3><p>سفارش به وضعیت دلخواه شما (مثلاً «تکمیل‌شده») می‌رسد؛ صورتحساب نوع اول یا دوم طبق تنظیم شما ساخته می‌شود.</p></div>
+        <div class="step"><div class="num">۲</div><h3>امضای دیجیتال</h3><p>بستهٔ صورتحساب با کلید خصوصی شما امضای دیجیتال و رمزنگاری می‌شود؛ کلید با AES-256 در سایت خودتان محافظت می‌شود.</p></div>
+        <div class="step"><div class="num">۳</div><h3>صف ارسال هوشمند</h3><p>خطاهای موقت با فاصلهٔ هوشمند دوباره تلاش می‌شوند (تا سقف ۲۴ ساعت) و خطاهای دائمی با ترجمهٔ فارسی و راه‌حل نمایش داده می‌شوند.</p></div>
+        <div class="step"><div class="num">۴</div><h3>استعلام و تأیید</h3><p>هر ۵ دقیقه وضعیت از سامانه پرسیده می‌شود: موفق / ناموفق / در انتظار؛ مرجوعی کامل خودکار به صورتحساب ابطالی می‌رسد.</p></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section id="creds" style="background:rgba(10,31,25,.5)">
+  <div class="wrap">
+    <h2 class="sec-title">چه چیزی را <b>کجا وارد کنم؟</b></h2>
+    <p class="sec-sub">فقط ۴ مورد، همهٔ آنها از کارپوشهٔ سازمان امور مالیاتی (my.tax.gov.ir) به دست می‌آید و همه در صفحهٔ «تنظیمات» افزونه، در بخش «اعتبارنامه‌ها» وارد می‌شود:</p>
+    <div class="creds">
+      <div class="cred"><div class="ico">🏛</div><h3>۱. شناسه ملی / شناسه مالیاتی</h3><p>شناسهٔ ۱۱ رقمی کسب‌وکار شما که سامانهٔ مودیان صورتحساب‌ها را به آن وابسته می‌کند.</p><span class="from">منبع: کارپوشه → اطلاعات مودی</span></div>
+      <div class="cred"><div class="ico">👤</div><h3>۲. نام کاربری مودیان</h3><p>نام کاربری سامانهٔ مودیان که هنگام فعال‌سازی مودیان از طریق پیامک برای مودی ارسال می‌شود.</p><span class="from">منبع: پیامک فعال‌سازی / پشتیبانی مالیاتی</span></div>
+      <div class="cred"><div class="ico">🔑</div><h3>۳. رمز عبور مودیان</h3><p>رمز عبوری که همراه نام کاربری صادر شده و برای دریافت توکن دسترسی استفاده می‌شود.</p><span class="from">منبع: پیامک فعال‌سازی / پشتیبانی مالیاتی</span></div>
+      <div class="cred"><div class="ico">✍</div><h3>۴. کلید خصوصی (امضای دیجیتال)</h3><p>کلید رمزنگاری که برای امضای هر بستهٔ صورتحساب لازم است؛ یک متن طولانی رمزنگاری‌شده است.</p><span class="from">منبع: کارپوشه → سامانهٔ مودیان → امضای دیجیتال</span></div>
+    </div>
+    <div class="notebox"><b>نکتهٔ مهم:</b> «محیط آزمایشی» (سندباکس) افزونه به‌صورت پیش‌فرض روشن است؛ یعنی می‌توانید پیش از بهره‌برداری واقعی، کل چرخهٔ ارسال/استعلام/ابطال را به نشانی آزمایشی سامانه بفرستید و همه‌چیز را بدون ریسک ببینید. راهنمای گام‌به‌گام دریافت هر ۴ مورد، در فایل راهنمای ۱۶ صفحه‌ای همراه افزونه آمده است.</div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2 class="sec-title">امکانات <b>کلی</b></h2>
+    <p class="sec-sub">هر چیزی که قانون پایانه‌های فروشگاهی از یک فروشگاه اینترنتی می‌خواهد — یک‌جا، فارسی و بی‌دردسر.</p>
+    <div class="feats">
+      <div class="feat"><div class="fi">🧾</div><h3>چرخهٔ کامل صورتحساب</h3><p>نوع اول، نوع دوم و ابطالی — مرجوعی کامل به‌صورت خودکار به صورتحساب ابطالی با ارجاع به شناسهٔ صورتحساب اصلی می‌رسد.</p></div>
+      <div class="feat"><div class="fi">🚀</div><h3>ارسال خودکار + انبوه</h3><p>ارسال خودکار هنگام تغییر وضعیت سفارش، ارسال دستی و ارسال انبوه از فهرست سفارش‌های ووکامرس.</p></div>
+      <div class="feat"><div class="fi">⏳</div><h3>صف ارسال هوشمند</h3><p>تلاش مجدد هوشمند (۵ دقیقه × ۲ به‌قوهٔ تعداد تلاش، تا سقف ۲۴ ساعت) + حالت «نیاز به بررسی» برای موارد خاص.</p></div>
+      <div class="feat"><div class="fi">🔄</div><h3>استعلام خودکار هر ۵ دقیقه</h3><p>وضعیت هر صورتحساب از سامانه پرسیده می‌شود: موفق / ناموفق / در انتظار / تایم‌اوت — بدون دخالت شما.</p></div>
+      <div class="feat"><div class="fi">🔒</div><h3>امنیت کلید خصوصی</h3><p>امضای دیجیتال + رمزنگاری بسته‌ها؛ کلید خصوصی هرگز به‌صورت خام ذخیره نمی‌شود و با AES-256 در سایت خودتان رمزنگاری می‌شود.</p></div>
+      <div class="feat"><div class="fi">🧪</div><h3>محیط آزمایشی (سندباکس)</h3><p>تست کامل چرخه بدون ریسک + آزمون اتصال با نمایش اطلاعات حافظهٔ مالیاتی — از روز اول.</p></div>
+      <div class="feat"><div class="fi">🛒</div><h3>اطلاعات مالیاتی هر محصول</h3><p>شناسهٔ کالا/خدمت، نرخ مالیات و عوارض، واحد سنجش، معافیت + ویرایش گروهی و پیش‌فرض دسته‌بندی.</p></div>
+      <div class="feat"><div class="fi">🏢</div><h3>خریدار B2B در تسویه‌حساب</h3><p>فیلد شناسه ملی/کد اقتصادی خریدار با اعتبارسنجی — صورتحساب نوع دوم برای مشتریان سازمانی.</p></div>
+      <div class="feat"><div class="fi">📊</div><h3>گزارش ماهانهٔ شمسی</h3><p>تفکیک نرخ مالیات، معاف/مشمول، ابطالی + خروجی CSV مستقیم قابل باز شدن در اکسل برای حسابدار.</p></div>
+      <div class="feat"><div class="fi">🖨</div><h3>صفحهٔ صورتحساب چاپی خریدار</h3><p>با شمارهٔ مرجع سامانه و راهنمای راستی‌آزمایی — بدون ورود، از ایمیل یا حساب کاربری.</p></div>
+      <div class="feat"><div class="fi">🧩</div><h3>پشتیبانی مارکت‌پلیس دکان</h3><p>هر فروشنده اعتبارنامه و شناسهٔ مالیاتی خودش را وارد می‌کند؛ صورتحساب زیرسفارش‌ها با شناسهٔ همان فروشنده صادر می‌شود.</p></div>
+      <div class="feat"><div class="fi">⚡</div><h3>سازگار با HPOS + دو زبان</h3><p>سازگار با جدول سفارش‌های اختصاصی ووکامرس؛ رابط کامل RTL فارسی + ترجمهٔ آمادهٔ en_US.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="band-inner">
+      <div class="band-txt">
+        <h2>هر دو پروتکل رسمی: <b>TSP و v2</b></h2>
+        <p>مودیان‌یار هر دو مسیر رسمی سامانه را پشتیبانی می‌کند — هم آداپتور TSP (self-tsp) و هم requestsmanager/api/v2. انتخاب آداپتور با یک کلیک از تنظیمات انجام می‌شود و اگر سازمان مسیر جدیدی را الزامی کند، فقط همان تنظیم را عوض می‌کنید.</p>
+        <div class="pillrow">
+          <span class="pill">GET_TOKEN خودکار</span>
+          <span class="pill">بستهٔ رمزنگاری‌شده</span>
+          <span class="pill">idempotency (شناسهٔ یکتا)</span>
+          <span class="pill">ترجمهٔ فارسی خطاها</span>
+        </div>
+      </div>
+      <div class="band-shot"><img src="shots/settings.png" alt="صفحه تنظیمات مودیان‌یار — اعتبارنامه‌ها و انتخاب آداپتور"></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2 class="sec-title">تصاویر <b>محیط افزونه</b></h2>
+    <p class="sec-sub">همهٔ تصاویر از نسخهٔ واقعی افزونه گرفته شده‌اند — با دادهٔ نمونه.</p>
+    <div class="grid">
+      <div class="shot"><img src="shots/queue.png" alt="صف ارسال"><div class="cap">صف ارسال — وضعیت، تلاش‌ها و خطای فارسی هر صورتحساب</div></div>
+      <div class="shot"><img src="shots/reports.png" alt="گزارش‌ها"><div class="cap">گزارش ماهانهٔ شمسی — تفکیک نرخ، معاف/مشمول و خروجی CSV</div></div>
+      <div class="shot"><img src="shots/invoice.png" alt="صورتحساب خریدار"><div class="cap">صفحهٔ صورتحساب چاپی خریدار با شمارهٔ مرجع و QR</div></div>
+      <div class="shot"><img src="shots/log.png" alt="گزارش فعالیت"><div class="cap">گزارش فعالیت کامل با جست‌وجو و فیلتر سطح</div></div>
+      <div class="shot"><img src="shots/selftest.png" alt="خودآزمون"><div class="cap">خودآزمون ۲۱ آزمونی — الگوریتم‌ها، تاریخ و رمزنگاری</div></div>
+      <div class="shot"><img src="shots/dashboard.png" alt="پیشخوان"><div class="cap">پیشخوان — آمار ارسال و وضعیت کلی</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec-title">پرسش‌های <b>پرتکرار</b></h2>
+    <p class="sec-sub">پاسخ کوتاه به چیزی که بیشتر از همه می‌پرسند.</p>
+    <details open><summary>اعتبارنامهٔ مودیان ندارم؛ افزونه از همین حالا به دردم می‌خورد؟</summary><p>بله. «محیط آزمایشی» به‌صورت پیش‌فرض روشن است و کل چرخه (ارسال، استعلام، ابطال) را به نشانی آزمایشی سامانه می‌فرستد. تنظیمات، اطلاعات مالیاتی محصولات و گزارش‌ها را از همین امروز مرتب می‌کنید و وقتی اعتبارنامه رسید، فقط ۴ فیلد را در تنظیمات پر می‌کنید.</p></details>
+    <details><summary>کلید خصوصی من کجا ذخیره می‌شود؟ نگران امنیتش هستم.</summary><p>کلید خصوصی هرگز به‌صورت متن خام ذخیره نمی‌شود؛ با AES-256 در پایگاه دادهٔ سایت خودتان رمزنگاری می‌شود و کلید رمزنگاری از salt اختصاصی وردپرس همان سایت ساخته می‌شود. هیچ داده‌ای به سرور واسطه‌ای فرستاده نمی‌شود و افزونه مستقیم با سامانهٔ مودیان حرف می‌زند.</p></details>
+    <details><summary>مرجوعی و ابطال را پشتیبانی می‌کنید؟</summary><p>بله — مرجوعی کامل به‌صورت خودکار صورتحساب ابطالی با ارجاع به شناسهٔ صورتحساب اصلی صادر و ارسال می‌کند و در گزارش ماهانه هم دیده می‌شود. ابطال دستی از صفحهٔ سفارش هم ممکن است.</p></details>
+    <details><summary>فروشگاهم با دکان چندفروشندگی است؛ چه می‌شود؟</summary><p>هر فروشنده اعتبارنامه و شناسهٔ مالیاتی خودش را در تنظیمات دکان وارد می‌کند و صورتحساب زیرسفارش‌هایش با شناسهٔ همان فروشنده صادر و ارسال می‌شود — دقیقاً همان چیزی که سامانه از مارکت‌پلیس‌ها انتظار دارد.</p></details>
+    <details><summary>پیش‌نیازها چیست؟</summary><p>وردپرس + ووکامرس (سازگار با HPOS)، PHP نسخهٔ ۷.۴ یا بالاتر و برای بهره‌برداری واقعی، اعتبارنامهٔ سامانهٔ مودیان. راهنمای فارسی ۱۶ صفحه‌ای همراه افزونه، مسیر دریافت اعتبارنامه‌ها را گام‌به‌گام نشان می‌دهد.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="price">قیمت نسخهٔ کامل: <b>۵,۹۰۰,۰۰۰ تومان</b> — با به‌روزرسانی‌های رایگان</div>
+    <div class="featline">خرید از بازار افزونه‌های فارسی rtl-theme | راهنمای ۱۶ صفحه‌ای + ترجمهٔ انگلیسی + پشتیبانی درون‌گانه</div>
+    <div class="cta">
+      <a class="btn btn-buy" href="https://www.rtl-theme.com" target="_blank" rel="noopener">دریافت از rtl-theme</a>
+      <a class="btn btn-ghost" href="#flow">بازگشت به چرخهٔ کار</a>
+    </div>
+    <div class="copy">© ۱۴۰۵ مودیان‌یار — این صفحه صرفاً نمایش محصول است و هیچ داده‌ای به سامانهٔ مودیان ارسال نمی‌کند.</div>
+  </div>
+</footer>
+</body>
+</html>
